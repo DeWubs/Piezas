@@ -7,7 +7,7 @@
  * that column. For an illustration of the board, see:
  *  https://en.wikipedia.org/wiki/Connect_Four
  *
- * Board coordinates [row,col] should match with:
+ * board coordinates [row,col] should match with:
  * [2,0][2,1][2,2][2,3]
  * [1,0][1,1][1,2][1,3]
  * [0,0][0,1][0,2][0,3]
@@ -25,7 +25,7 @@ Piezas::Piezas()
   turn = X;
   for(i = 0; i < BOARD_ROWS; i++){
     for(j= 0; j < BOARD_COLS; j++){
-      Board[i][j] = Blank;
+      board[i][j] = Blank;
     }
   }
 }
@@ -38,7 +38,7 @@ void Piezas::reset()
 {
   for(i = 0; i < BOARD_ROWS; i++){
     for(j= 0; j < BOARD_COLS; j++){
-      Board[i][j] = Blank;
+      board[i][j] = Blank;
     }
   }
 }
@@ -63,18 +63,18 @@ Piece Piezas::dropPiece(int column)
         return Invalid;
       }
     }
-    if(Board[0][column] != ' '){
+    if(board[0][column] != ' '){
       return Blank;
     }
     for(int i = 2; i >=0; i--){
-      if(Board[i][column] == ' '){
+      if(board[i][column] == ' '){
         if(turn == X){
-          Board[i][column] = X;
+          board[i][column] = X;
           turn = O;
           return X;
         }
         else{
-          Board[i][column] = O;
+          board[i][column] = O;
           turn = X;
           return O;
         }
@@ -91,10 +91,10 @@ Piece Piezas::pieceAt(int row, int column)
   if(row > (BOARD_ROWS - 1) || column > (BOARD_COLS - 1) ){
     return Invalid;
   }
-  if(Board[row][column] == ' '){
+  if(board[row][column] == ' '){
     return Blank;
   }
-  return Board[row][column];
+  return board[row][column];
 }
 
 /**
