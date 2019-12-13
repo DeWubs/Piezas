@@ -29,13 +29,13 @@ TEST(PiezasTest, dropPieceReturnY)
 {
   Piezas board;
   board.dropPiece(0);
-	ASSERT_EQ(board.dropPiece(0), Y);
+	ASSERT_EQ(board.dropPiece(0), O);
 }
 
 TEST(PiezasTest, dropPieceReturnInval)
 {
   Piezas board;
-	ASSERT_EQ(board.dropPiece(4), X);
+	ASSERT_EQ(board.dropPiece(4), Invalid);
 }
 
 TEST(PiezasTest, dropPieceReturnBlank)
