@@ -215,5 +215,6 @@ Piece Piezas::gameState()
       }
       return O;
     }
+    
   return Invalid;
 }
