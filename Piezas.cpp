@@ -113,7 +113,7 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
-    if(board[0][0] != ' ' || board[0][1] != ' ' || board[0][2] != ' ' || board[0][3] != ' '){
+    if(board[0][0] == ' ' || board[0][1] == ' ' || board[0][2] == ' ' || board[0][3] == ' '){
       return Invalid;
     }
     int xSumVert = 0;
