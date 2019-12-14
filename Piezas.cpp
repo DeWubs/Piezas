@@ -202,16 +202,12 @@ Piece Piezas::gameState()
     /*winners?*/
     if(xSumVert == 0 && xSumHor == 0 && oSumVert == 0 && oSumHor == 0)
       return Blank;
-    if(xSumVert > oSumVert){
+
+    else if(xSumVert > oSumVert){
       if(xSumHor > oSumHor){
         return X;
       }
       return O;
-    }
-    if(oSumHor > xSumHor){
-      if(oSumVert > xSumVert)
-        return O;
-      return X;
     }
   return Invalid;
 }
