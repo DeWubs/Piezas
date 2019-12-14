@@ -209,5 +209,11 @@ Piece Piezas::gameState()
       }
       return O;
     }
+    else{
+      if(xSumHor > oSumHor){
+        return X;
+      }
+      return O;
+    }
   return Invalid;
 }
