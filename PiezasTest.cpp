@@ -82,3 +82,9 @@ TEST(PiezasTest, resetBoardTest)
   board.reset();
 	ASSERT_EQ(board.pieceAt(2,0), Blank);
 }
+/*tests gameState*/
+TEST(PiezasTest, gameNotover)
+{
+  Piezas board;
+	ASSERT_EQ(board.gameState(), Invalid);
+}

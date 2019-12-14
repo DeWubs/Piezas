@@ -113,5 +113,105 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
-    return Blank;
+    if(board[0][0] != ' ' || board[0][1] != ' ' || board[0][2] != ' ' || board[0][3] != ' '){
+      return Invalid;
+    }
+    int xSumVert = 0;
+    int oSumVert = 0;
+    int xSumHor = 0;
+    int oSumHor = 0;
+
+    /*checking vertically*/
+    if(board[0][0] == X && board[1][0] == X)
+      xSumVert = 2;
+    else if(board[0][0] == X && board[1][0] == X && board[2][0] == X )
+      xSumVert = 3;
+    else if(board[0][0] == O && board[1][0] == O)
+      oSumVert = 2;
+    else if(board[0][0] == O && board[1][0] == O && board[2][0] == O )
+      oSumVert = 3;
+
+    if(board[0][1] == X && board[1][1] == X)
+      xSumVert = 2;
+    else if(board[0][1] == X && board[1][1] == X && board[2][1] == X )
+      xSumVert = 3;
+    else if(board[0][1] == O && board[1][1] == O)
+      oSumVert = 2;
+    else if(board[0][1] == O && board[1][1] == O && board[2][1] == O )
+      oSumVert = 3;
+
+    if(board[0][2] == X && board[1][2] == X)
+      xSumVert = 2;
+    else if(board[0][2] == X && board[1][2] == X && board[2][2] == X )
+      xSumVert = 3;
+    else if(board[0][2] == O && board[1][2] == O)
+      oSumVert = 2;
+    else if(board[0][2] == O && board[1][2] == O && board[2][2] == O )
+      oSumVert = 3;
+
+    if(board[0][3] == X && board[1][3] == X)
+      xSumVert = 2;
+    else if(board[0][3] == X && board[1][3] == X && board[2][3] == X )
+      xSumVert = 3;
+    else if(board[0][3] == O && board[1][3] == O)
+      oSumVert = 2;
+    else if(board[0][3] == O && board[1][3] == O && board[2][3] == O )
+      oSumVert = 3;
+
+
+    /*checking horizontally*/
+    if(board[0][0] == X && board[0][1] == X)
+      xSumHor = 2;
+    else if(board[0][1] == X && board[0][1] == X && board[0][2] == X )
+      xSumHor = 3;
+    else if(board[0][1] == X && board[0][1] == X && board[0][2] == X && board[0][3] == X )
+      xSumHor = 4;
+    else if(board[0][0] == O && board[0][1] == O)
+      oSumHor = 2;
+    else if(board[0][1] == O && board[0][1] == O && board[0][2] == O )
+      oSumHor = 3;
+    else if(board[0][1] == O && board[0][1] == O && board[0][2] == O && board[0][3] == O )
+      oSumHor = 4;
+
+    if(board[1][0] == X && board[1][1] == X)
+      xSumHor = 2;
+    else if(board[1][1] == X && board[1][1] == X && board[1][2] == X )
+      xSumHor = 3;
+    else if(board[1][1] == X && board[1][1] == X && board[1][2] == X && board[1][3] == X )
+      xSumHor = 4;
+    else if(board[1][0] == O && board[1][1] == O)
+      oSumHor = 2;
+    else if(board[1][1] == O && board[1][1] == O && board[1][2] == O )
+      oSumHor = 3;
+    else if(board[1][1] == O && board[1][1] == O && board[1][2] == O && board[1][3] == O )
+      oSumHor = 4;
+
+    if(board[2][0] == X && board[2][1] == X)
+      xSumHor = 2;
+    else if(board[2][1] == X && board[2][1] == X && board[2][2] == X )
+      xSumHor = 3;
+    else if(board[2][1] == X && board[2][1] == X && board[2][2] == X && board[2][3] == X )
+      xSumHor = 4;
+    else if(board[2][0] == O && board[2][1] == O)
+      oSumHor = 2;
+    else if(board[2][1] == O && board[2][1] == O && board[2][2] == O )
+      oSumHor = 3;
+    else if(board[2][1] == O && board[2][1] == O && board[2][2] == O && board[2][3] == O )
+      oSumHor = 4;
+
+    /*winners?*/
+    if(xSumVert == 0 && xSumHor == 0 && oSumVert == 0 && oSumHor == 0)
+      return Blank;
+    if(xSumVert > oSumVert){
+      if(xSumHor > oSumHor){
+        return X;
+      }
+      return O;
+    }
+    if(oSumHor > xSumHor){
+      if(oSumVert > xSumVert)
+        return O;
+      return X;
+    }
+  return Invalid;
 }
