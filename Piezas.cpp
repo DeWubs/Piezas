@@ -66,20 +66,20 @@ Piece Piezas::dropPiece(int column)
     if(board[0][column] != ' '){
       return Blank;
     }
-    for(int i = 2; i > 0; i--){
-      if(board[i][column] == ' '){
-        if(turn == X){
-          board[i][column] = X;
-          turn = O;
-          return X;
-        }
-        else{
-          board[i][column] = O;
-          turn = X;
-          return O;
-        }
-      }
-    }
+    // for(int i = 2; i >= 0; i--){
+    //   if(board[i][column] == ' '){
+    //     if(turn == X){
+    //       board[i][column] = X;
+    //       turn = O;
+    //       return X;
+    //     }
+    //     else{
+    //       board[i][column] = O;
+    //       turn = X;
+    //       return O;
+    //     }
+    //   }
+    // }
     return Invalid;
 }
 
