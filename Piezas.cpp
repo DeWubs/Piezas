@@ -136,7 +136,7 @@ Piece Piezas::gameState()
   /*checking vertically for X*/
   for (int i = 0; i < (BOARD_COLS - 1); i++){
     for (int j = 0; j <(BOARD_ROWS - 1); j++){
-      if (board[j][i] == board[j][i + 1] && board[j][i] == X){
+      if (board[j][i] == board[j+ 1][i] && board[j][i] == X){
           tally++;
       }
       else{
@@ -165,7 +165,7 @@ Piece Piezas::gameState()
   /*checking vertically for O*/
   for (int i = 0; i < (BOARD_COLS - 1); i++){
     for (int j = 0; j <(BOARD_ROWS - 1); j++){
-      if (board[j][i] == board[j][i + 1] && board[j][i] == O){
+      if (board[j][i] == board[j + 1][i] && board[j][i] == O){
           tally++;
         }
       else{
