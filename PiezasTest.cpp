@@ -58,7 +58,7 @@ TEST(PiezasTest, onePiece)
 {
   Piezas board;
   board.dropPiece(0);
-	ASSERT_EQ(board.pieceAt(0,2), X);
+	ASSERT_EQ(board.pieceAt(2,0), X);
 }
 
 TEST(PiezasTest, outOfBoundsrow)
@@ -71,4 +71,14 @@ TEST(PiezasTest, outOfBoundsCol)
 {
   Piezas board;
 	ASSERT_EQ(board.pieceAt(0,4), Invalid);
+}
+
+/*Tests for reset*/
+
+TEST(PiezasTest, resetBoardTest)
+{
+  Piezas board;
+  board.dropPiece(0);
+  board.reset();
+	ASSERT_EQ(board.pieceAt(2,0), Blank);
 }
