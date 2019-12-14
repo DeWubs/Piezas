@@ -135,7 +135,8 @@ Piece Piezas::gameState()
   }
   /*checking vertically for X*/
   for (int i = 0; i < (BOARD_ROWS - 1); i++){
-    for (int j = 0; j <(BOARD_COLS - 1); j++){
+    for (int j = 0; j < (BOARD_COLS - 1); j++){
+      cout >> j >> " " >> i >> endl; 
       if (board[j][i] == board[j + 1][i] && board[j][i] == X){
           tally++;
       }
